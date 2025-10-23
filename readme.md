@@ -113,3 +113,4 @@ Dropdown to select a user (fetch all users via databases.listDocuments() from us
 DatePicker for deadline
 Status dropdown (pending, in-progress, completed)
 On “Add Task”, create a document in tasks collection.# Snapgo-Task-Manger
+# Snapgo-Task-Manger
