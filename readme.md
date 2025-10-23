@@ -114,3 +114,4 @@ DatePicker for deadline
 Status dropdown (pending, in-progress, completed)
 On “Add Task”, create a document in tasks collection.# Snapgo-Task-Manger
 # Snapgo-Task-Manger
+![snapgo app screenshot .png](../snapgo%20app%20screenshot%20.png)
