@@ -3,7 +3,7 @@
   "packages": [
     {
       "name": "appwrite",
-      "rootUri": "file:///Users/minhajraza/.pub-cache/hosted/pub.dev/appwrite-11.0.1",
+      "rootUri": "file:///Users/minhajraza/.pub-cache/hosted/pub.dev/appwrite-20.2.1",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
@@ -24,12 +24,6 @@
       "rootUri": "file:///Users/minhajraza/.pub-cache/hosted/pub.dev/characters-1.4.0",
       "packageUri": "lib/",
       "languageVersion": "3.4"
-    },
-    {
-      "name": "charcode",
-      "rootUri": "file:///Users/minhajraza/.pub-cache/hosted/pub.dev/charcode-1.4.0",
-      "packageUri": "lib/",
-      "languageVersion": "3.0"
     },
     {
       "name": "clock",
@@ -56,22 +50,22 @@
       "languageVersion": "3.4"
     },
     {
-      "name": "csslib",
-      "rootUri": "file:///Users/minhajraza/.pub-cache/hosted/pub.dev/csslib-1.0.2",
-      "packageUri": "lib/",
-      "languageVersion": "3.1"
-    },
-    {
       "name": "cupertino_icons",
       "rootUri": "file:///Users/minhajraza/.pub-cache/hosted/pub.dev/cupertino_icons-1.0.8",
       "packageUri": "lib/",
       "languageVersion": "3.1"
     },
     {
-      "name": "device_info_plus",
-      "rootUri": "file:///Users/minhajraza/.pub-cache/hosted/pub.dev/device_info_plus-9.1.2",
+      "name": "desktop_webview_window",
+      "rootUri": "file:///Users/minhajraza/.pub-cache/hosted/pub.dev/desktop_webview_window-0.2.3",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "device_info_plus",
+      "rootUri": "file:///Users/minhajraza/.pub-cache/hosted/pub.dev/device_info_plus-11.5.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.7"
     },
     {
       "name": "device_info_plus_platform_interface",
@@ -117,15 +111,15 @@
     },
     {
       "name": "flutter_web_auth_2",
-      "rootUri": "file:///Users/minhajraza/.pub-cache/hosted/pub.dev/flutter_web_auth_2-2.2.1",
+      "rootUri": "file:///Users/minhajraza/.pub-cache/hosted/pub.dev/flutter_web_auth_2-4.1.0",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.15"
     },
     {
       "name": "flutter_web_auth_2_platform_interface",
-      "rootUri": "file:///Users/minhajraza/.pub-cache/hosted/pub.dev/flutter_web_auth_2_platform_interface-2.1.4",
+      "rootUri": "file:///Users/minhajraza/.pub-cache/hosted/pub.dev/flutter_web_auth_2_platform_interface-4.1.0",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.15"
     },
     {
       "name": "flutter_web_plugins",
@@ -138,12 +132,6 @@
       "rootUri": "file:///Users/minhajraza/.pub-cache/hosted/pub.dev/google_fonts-6.3.2",
       "packageUri": "lib/",
       "languageVersion": "3.7"
-    },
-    {
-      "name": "html",
-      "rootUri": "file:///Users/minhajraza/.pub-cache/hosted/pub.dev/html-0.15.6",
-      "packageUri": "lib/",
-      "languageVersion": "3.2"
     },
     {
       "name": "http",
@@ -207,15 +195,15 @@
     },
     {
       "name": "package_info_plus",
-      "rootUri": "file:///Users/minhajraza/.pub-cache/hosted/pub.dev/package_info_plus-4.2.0",
+      "rootUri": "file:///Users/minhajraza/.pub-cache/hosted/pub.dev/package_info_plus-8.3.1",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "3.3"
     },
     {
       "name": "package_info_plus_platform_interface",
-      "rootUri": "file:///Users/minhajraza/.pub-cache/hosted/pub.dev/package_info_plus_platform_interface-2.0.1",
+      "rootUri": "file:///Users/minhajraza/.pub-cache/hosted/pub.dev/package_info_plus_platform_interface-3.2.1",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.18"
     },
     {
       "name": "path",
@@ -362,12 +350,6 @@
       "languageVersion": "3.5"
     },
     {
-      "name": "universal_html",
-      "rootUri": "file:///Users/minhajraza/.pub-cache/hosted/pub.dev/universal_html-2.2.4",
-      "packageUri": "lib/",
-      "languageVersion": "2.17"
-    },
-    {
       "name": "universal_io",
       "rootUri": "file:///Users/minhajraza/.pub-cache/hosted/pub.dev/universal_io-2.2.2",
       "packageUri": "lib/",
@@ -440,10 +422,16 @@
       "languageVersion": "3.4"
     },
     {
-      "name": "web_socket_channel",
-      "rootUri": "file:///Users/minhajraza/.pub-cache/hosted/pub.dev/web_socket_channel-2.4.0",
+      "name": "web_socket",
+      "rootUri": "file:///Users/minhajraza/.pub-cache/hosted/pub.dev/web_socket-1.0.1",
       "packageUri": "lib/",
-      "languageVersion": "2.15"
+      "languageVersion": "3.4"
+    },
+    {
+      "name": "web_socket_channel",
+      "rootUri": "file:///Users/minhajraza/.pub-cache/hosted/pub.dev/web_socket_channel-3.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "3.3"
     },
     {
       "name": "win32",
@@ -453,9 +441,9 @@
     },
     {
       "name": "win32_registry",
-      "rootUri": "file:///Users/minhajraza/.pub-cache/hosted/pub.dev/win32_registry-1.1.5",
+      "rootUri": "file:///Users/minhajraza/.pub-cache/hosted/pub.dev/win32_registry-2.1.0",
       "packageUri": "lib/",
-      "languageVersion": "3.4"
+      "languageVersion": "3.7"
     },
     {
       "name": "window_to_front",

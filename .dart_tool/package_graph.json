@@ -68,7 +68,7 @@
     },
     {
       "name": "appwrite",
-      "version": "11.0.1",
+      "version": "20.2.1",
       "dependencies": [
         "cookie_jar",
         "device_info_plus",
@@ -77,7 +77,7 @@
         "http",
         "package_info_plus",
         "path_provider",
-        "universal_html",
+        "web",
         "web_socket_channel"
       ]
     },
@@ -256,27 +256,19 @@
       ]
     },
     {
-      "name": "universal_html",
-      "version": "2.2.4",
-      "dependencies": [
-        "async",
-        "charcode",
-        "collection",
-        "csslib",
-        "html",
-        "meta",
-        "source_span",
-        "typed_data",
-        "universal_io"
-      ]
+      "name": "web",
+      "version": "1.1.1",
+      "dependencies": []
     },
     {
       "name": "web_socket_channel",
-      "version": "2.4.0",
+      "version": "3.0.3",
       "dependencies": [
         "async",
         "crypto",
-        "stream_channel"
+        "stream_channel",
+        "web",
+        "web_socket"
       ]
     },
     {
@@ -293,8 +285,9 @@
     },
     {
       "name": "package_info_plus",
-      "version": "4.2.0",
+      "version": "8.3.1",
       "dependencies": [
+        "clock",
         "ffi",
         "flutter",
         "flutter_web_plugins",
@@ -302,6 +295,7 @@
         "meta",
         "package_info_plus_platform_interface",
         "path",
+        "web",
         "win32"
       ]
     },
@@ -316,18 +310,21 @@
     },
     {
       "name": "flutter_web_auth_2",
-      "version": "2.2.1",
+      "version": "4.1.0",
       "dependencies": [
+        "desktop_webview_window",
         "flutter",
         "flutter_web_auth_2_platform_interface",
         "flutter_web_plugins",
+        "path_provider",
         "url_launcher",
+        "web",
         "window_to_front"
       ]
     },
     {
       "name": "device_info_plus",
-      "version": "9.1.2",
+      "version": "11.5.0",
       "dependencies": [
         "device_info_plus_platform_interface",
         "ffi",
@@ -335,6 +332,7 @@
         "flutter",
         "flutter_web_plugins",
         "meta",
+        "web",
         "win32",
         "win32_registry"
       ]
@@ -456,11 +454,6 @@
       ]
     },
     {
-      "name": "web",
-      "version": "1.1.1",
-      "dependencies": []
-    },
-    {
       "name": "flutter_web_plugins",
       "version": "0.0.0",
       "dependencies": [
@@ -486,39 +479,10 @@
       ]
     },
     {
-      "name": "universal_io",
-      "version": "2.2.2",
+      "name": "web_socket",
+      "version": "1.0.1",
       "dependencies": [
-        "collection",
-        "meta",
-        "typed_data"
-      ]
-    },
-    {
-      "name": "typed_data",
-      "version": "1.4.0",
-      "dependencies": [
-        "collection"
-      ]
-    },
-    {
-      "name": "html",
-      "version": "0.15.6",
-      "dependencies": [
-        "csslib",
-        "source_span"
-      ]
-    },
-    {
-      "name": "charcode",
-      "version": "1.4.0",
-      "dependencies": []
-    },
-    {
-      "name": "csslib",
-      "version": "1.0.2",
-      "dependencies": [
-        "source_span"
+        "web"
       ]
     },
     {
@@ -546,7 +510,7 @@
     },
     {
       "name": "package_info_plus_platform_interface",
-      "version": "2.0.1",
+      "version": "3.2.1",
       "dependencies": [
         "flutter",
         "meta",
@@ -591,17 +555,26 @@
     },
     {
       "name": "flutter_web_auth_2_platform_interface",
-      "version": "2.1.4",
+      "version": "4.1.0",
       "dependencies": [
         "flutter",
         "plugin_platform_interface"
       ]
     },
     {
+      "name": "desktop_webview_window",
+      "version": "0.2.3",
+      "dependencies": [
+        "flutter",
+        "path"
+      ]
+    },
+    {
       "name": "win32_registry",
-      "version": "1.1.5",
+      "version": "2.1.0",
       "dependencies": [
         "ffi",
+        "meta",
         "win32"
       ]
     },
@@ -612,6 +585,22 @@
         "flutter",
         "meta",
         "plugin_platform_interface"
+      ]
+    },
+    {
+      "name": "universal_io",
+      "version": "2.2.2",
+      "dependencies": [
+        "collection",
+        "meta",
+        "typed_data"
+      ]
+    },
+    {
+      "name": "typed_data",
+      "version": "1.4.0",
+      "dependencies": [
+        "collection"
       ]
     },
     {

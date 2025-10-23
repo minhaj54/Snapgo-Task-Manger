@@ -51,7 +51,7 @@ class AppwriteService {
         // No current session, proceed to create one
       }
 
-      final session = await _account.createEmailSession(
+      final session = await _account.createEmailPasswordSession(
         email: email,
         password: password,
       );

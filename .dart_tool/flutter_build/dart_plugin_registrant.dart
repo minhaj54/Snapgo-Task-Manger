@@ -100,7 +100,7 @@ class _PluginRegistrant {
       }
 
       try {
-        FlutterWebAuth2LinuxPlugin.registerWith();
+        FlutterWebAuth2LinowsPlugin.registerWith();
       } catch (err) {
         print(
           '`flutter_web_auth_2` threw an error: $err. '
@@ -183,7 +183,7 @@ class _PluginRegistrant {
       }
 
       try {
-        FlutterWebAuth2WindowsPlugin.registerWith();
+        FlutterWebAuth2LinowsPlugin.registerWith();
       } catch (err) {
         print(
           '`flutter_web_auth_2` threw an error: $err. '

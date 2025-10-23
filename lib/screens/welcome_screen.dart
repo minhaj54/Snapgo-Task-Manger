@@ -146,7 +146,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                   ),
                 ),
                 
-                const SizedBox(height: 60),
+                const SizedBox(height: 40),
                 
                 // Features List
                 FadeTransition(
@@ -172,6 +172,8 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                           'Smart Dashboard',
                           'Beautiful, intuitive interface',
                         ),
+                        const SizedBox(height: 15),
+
                       ],
                     ),
                   ),
