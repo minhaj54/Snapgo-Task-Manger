@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/snapbook.iml" filepath="$PROJECT_DIR$/snapbook.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/snapbook_android.iml" filepath="$PROJECT_DIR$/android/snapbook_android.iml" />
+    </modules>
+  </component>
+</project>

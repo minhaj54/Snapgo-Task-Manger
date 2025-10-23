@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "68547522067",
+    "project_id": "snapgo-task-manager",
+    "storage_bucket": "snapgo-task-manager.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:68547522067:android:c19d9ef30db3dc424a99e6",
+        "android_client_info": {
+          "package_name": "com.example.snapbook"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7wfcPJfl8IePj79s4xfyaMmSP647aHvo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
