@@ -6,6 +6,7 @@ class Task {
   final DateTime deadline;
   final String status; // 'pending' | 'in-progress' | 'completed'
   final DateTime? createdAt; // read-only, from DB (createdAt or $createdAt)
+  final String createdBy; // username of task creator
 
   Task({
     required this.id,
@@ -15,6 +16,7 @@ class Task {
     required this.deadline,
     required this.status,
     this.createdAt,
+    this.createdBy = '',
   });
 
   // Get list of assigned users
@@ -26,6 +28,7 @@ class Task {
     'assignedTo': assignedTo,
     'deadline': deadline.toIso8601String(),
     'status': status,
+    'createdBy': createdBy,
   };
 
   factory Task.fromMap(Map<String, dynamic> map) => Task(
@@ -36,6 +39,7 @@ class Task {
     deadline: _parseDate(map['deadline']),
     status: (map['status'] ?? 'pending') as String,
     createdAt: _parseDateOrNull(map['createdAt'] ?? map['\$createdAt']),
+    createdBy: map['createdBy'] ?? '',
   );
 }
 

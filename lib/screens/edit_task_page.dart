@@ -5,7 +5,15 @@ import '../appwrite/appwrite_service.dart';
 
 class EditTaskPage extends StatefulWidget {
   final Task task;
-  const EditTaskPage({super.key, required this.task});
+  final String currentUserName;
+  final bool isAdmin;
+  
+  const EditTaskPage({
+    super.key,
+    required this.task,
+    required this.currentUserName,
+    required this.isAdmin,
+  });
 
   @override
   State<EditTaskPage> createState() => _EditTaskPageState();
@@ -25,6 +33,25 @@ class _EditTaskPageState extends State<EditTaskPage> {
   @override
   void initState() {
     super.initState();
+    
+    // Check permissions - must be admin OR task creator
+    final canEdit = widget.isAdmin || 
+                    widget.task.createdBy.toLowerCase() == widget.currentUserName.toLowerCase();
+    
+    if (!canEdit) {
+      // Show error and go back
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('You do not have permission to edit this task'),
+            backgroundColor: Colors.redAccent,
+          ),
+        );
+        Navigator.pop(context);
+      });
+      return;
+    }
+    
     titleController = TextEditingController(text: widget.task.title);
     descController = TextEditingController(text: widget.task.description);
     deadlineController = TextEditingController(text: _formatDate(widget.task.deadline));

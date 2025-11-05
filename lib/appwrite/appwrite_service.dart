@@ -1,6 +1,7 @@
 import 'package:appwrite/appwrite.dart';
 import 'package:appwrite/models.dart';
 import '../models/task_model.dart';
+import '../models/comment_model.dart';
 
 class AppwriteService {
   final Client _client = Client();
@@ -11,6 +12,7 @@ class AppwriteService {
   final String databaseId = '68ee9a9f001a1fbc26a4';
   final String tasksCollectionId = 'tasks';
   final String usersCollectionId = 'users';
+  final String commentsCollectionId = 'comments';
 
   AppwriteService() {
     _client
@@ -156,10 +158,14 @@ class AppwriteService {
           .toList();
       
       if (!isAdmin) {
-        // Filter tasks where user is in the assignedTo list (comma-separated)
+        // Filter tasks where user is EITHER:
+        // 1. In the assignedTo list (tasks assigned to them)
+        // 2. The creator of the task (tasks they created)
         allTasks = allTasks.where((task) {
           final assignedUsers = task.assignedTo.toLowerCase().split(',').map((e) => e.trim()).toList();
-          return assignedUsers.contains(userName.toLowerCase());
+          final isAssignedToUser = assignedUsers.contains(userName.toLowerCase());
+          final isCreatedByUser = task.createdBy.toLowerCase() == userName.toLowerCase();
+          return isAssignedToUser || isCreatedByUser;
         }).toList();
       }
       
@@ -245,6 +251,75 @@ class AppwriteService {
   Stream<RealtimeMessage> getRealtimeUpdates() {
     return _realtime
         .subscribe(['databases.$databaseId.collections.$tasksCollectionId.documents'])
+        .stream;
+  }
+
+  // Comment methods
+  Future<List<Comment>> getComments(String taskId) async {
+    try {
+      final response = await _db.listDocuments(
+        databaseId: databaseId,
+        collectionId: commentsCollectionId,
+        queries: [
+          Query.equal('taskId', taskId),
+          Query.orderDesc('\$createdAt'), // Newest first
+        ],
+      );
+      return response.documents
+          .map((d) => Comment.fromMap(d.data))
+          .toList();
+    } catch (e) {
+      print('Error fetching comments: $e');
+      return [];
+    }
+  }
+
+  Future<void> addComment(Comment comment) async {
+    try {
+      await _db.createDocument(
+        databaseId: databaseId,
+        collectionId: commentsCollectionId,
+        documentId: ID.unique(),
+        data: comment.toMap(),
+      );
+    } catch (e) {
+      print('Error adding comment: $e');
+      rethrow;
+    }
+  }
+
+  Future<void> updateComment(String id, String content) async {
+    try {
+      await _db.updateDocument(
+        databaseId: databaseId,
+        collectionId: commentsCollectionId,
+        documentId: id,
+        data: {
+          'content': content,
+        },
+      );
+    } catch (e) {
+      print('Error updating comment: $e');
+      rethrow;
+    }
+  }
+
+  Future<void> deleteComment(String id) async {
+    try {
+      await _db.deleteDocument(
+        databaseId: databaseId,
+        collectionId: commentsCollectionId,
+        documentId: id,
+      );
+    } catch (e) {
+      print('Error deleting comment: $e');
+      rethrow;
+    }
+  }
+
+  Stream<RealtimeMessage> getCommentsRealtimeUpdates(String taskId) {
+    return _realtime
+        .subscribe(['databases.$databaseId.collections.$commentsCollectionId.documents'])
         .stream;
   }
 }

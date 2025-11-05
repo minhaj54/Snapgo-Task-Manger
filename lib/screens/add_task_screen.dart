@@ -23,16 +23,10 @@ class _AddTaskPageState extends State<AddTaskPage> {
   DateTime? _selectedDeadline;
   String _selectedStatus = 'pending';
 
-  bool get _isAdmin => widget.currentUserName.toLowerCase() == 'admin';
-
   @override
   void initState() {
     super.initState();
-    if (_isAdmin) {
-      _loadUsers();
-    } else {
-      _selectedUsers = [widget.currentUserName];
-    }
+    _loadUsers();
   }
 
   Future<void> _loadUsers() async {
@@ -69,6 +63,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
         assignedTo: assignedToStr,
         deadline: _selectedDeadline!,
         status: _selectedStatus,
+        createdBy: widget.currentUserName,
       );
 
       await _service.addTask(task);
@@ -125,98 +120,77 @@ class _AddTaskPageState extends State<AddTaskPage> {
             const SizedBox(height: 12),
             _buildTextField(descController, 'Description', maxLines: 3),
             const SizedBox(height: 12),
-            _isAdmin
-                ? Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Assign To (${_selectedUsers.length} selected)',
+                  style: GoogleFonts.poppins(
+                    color: Colors.white70,
+                    fontSize: 14,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(
+                      color: Colors.white.withOpacity(0.2),
+                    ),
+                  ),
+                  child: Column(
                     children: [
-                      Text(
-                        'Assign To (${_selectedUsers.length} selected)',
-                        style: GoogleFonts.poppins(
-                          color: Colors.white70,
-                          fontSize: 14,
-                        ),
-                      ),
-                      const SizedBox(height: 8),
-                      Container(
-                        padding: const EdgeInsets.all(12),
-                        decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.1),
-                          borderRadius: BorderRadius.circular(12),
-                          border: Border.all(
-                            color: Colors.white.withOpacity(0.2),
-                          ),
-                        ),
-                        child: Column(
-                          children: [
-                            // Display selected users as chips
-                            if (_selectedUsers.isNotEmpty)
-                              Wrap(
-                                spacing: 8,
-                                runSpacing: 8,
-                                children: _selectedUsers.map((user) {
-                                  return Chip(
-                                    label: Text(
-                                      user,
-                                      style: GoogleFonts.poppins(
-                                        color: Colors.white,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    backgroundColor: const Color(0xFF7C4DFF).withOpacity(0.3),
-                                    deleteIcon: const Icon(
-                                      Icons.close,
-                                      size: 16,
-                                      color: Colors.white,
-                                    ),
-                                    onDeleted: () {
-                                      setState(() {
-                                        _selectedUsers.remove(user);
-                                      });
-                                    },
-                                  );
-                                }).toList(),
-                              ),
-                            const SizedBox(height: 8),
-                            // Button to open user selection
-                            OutlinedButton.icon(
-                              onPressed: () => _showUserSelectionDialog(),
-                              icon: const Icon(Icons.person_add, color: Color(0xFF26C6DA)),
+                      // Display selected users as chips
+                      if (_selectedUsers.isNotEmpty)
+                        Wrap(
+                          spacing: 8,
+                          runSpacing: 8,
+                          children: _selectedUsers.map((user) {
+                            return Chip(
                               label: Text(
-                                'Select Users',
-                                style: GoogleFonts.poppins(color: Color(0xFF26C6DA)),
-                              ),
-                              style: OutlinedButton.styleFrom(
-                                side: const BorderSide(color: Color(0xFF26C6DA)),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8),
+                                user,
+                                style: GoogleFonts.poppins(
+                                  color: Colors.white,
+                                  fontSize: 12,
                                 ),
                               ),
-                            ),
-                          ],
+                              backgroundColor: const Color(0xFF7C4DFF).withOpacity(0.3),
+                              deleteIcon: const Icon(
+                                Icons.close,
+                                size: 16,
+                                color: Colors.white,
+                              ),
+                              onDeleted: () {
+                                setState(() {
+                                  _selectedUsers.remove(user);
+                                });
+                              },
+                            );
+                          }).toList(),
+                        ),
+                      const SizedBox(height: 8),
+                      // Button to open user selection
+                      OutlinedButton.icon(
+                        onPressed: () => _showUserSelectionDialog(),
+                        icon: const Icon(Icons.person_add, color: Color(0xFF26C6DA)),
+                        label: Text(
+                          'Select Users',
+                          style: GoogleFonts.poppins(color: Color(0xFF26C6DA)),
+                        ),
+                        style: OutlinedButton.styleFrom(
+                          side: const BorderSide(color: Color(0xFF26C6DA)),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
                         ),
                       ),
                     ],
-                  )
-                : Container(
-                    padding: const EdgeInsets.all(16),
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.1),
-                        borderRadius: BorderRadius.circular(12),
-                      border: Border.all(
-                        color: Colors.white.withOpacity(0.2),
-                      ),
-                    ),
-                    child: Row(
-                      children: [
-                        const Icon(Icons.person, color: Colors.white70),
-                        const SizedBox(width: 12),
-                        Text(
-                          'Assigned to: ${widget.currentUserName}',
-                          style: GoogleFonts.poppins(color: Colors.white),
-                        ),
-                      ],
-                    ),
                   ),
+                ),
+              ],
+            ),
             const SizedBox(height: 12),
             GestureDetector(
               onTap: () async {
